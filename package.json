@@ -6,6 +6,7 @@
   "scripts": {
     "start:backend": "npm --prefix event-ticket run start:dev",
     "start:frontend": "npm --prefix event-ticket-web start",
+    "build": "npm --prefix event-ticket-web run build",
     "build:backend": "npm --prefix event-ticket run build",
     "build:frontend": "npm --prefix event-ticket-web run build",
     "build:all": "npm run build:backend && npm run build:frontend",
