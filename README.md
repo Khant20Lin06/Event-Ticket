@@ -4,6 +4,14 @@ An enterprise-grade, distributed event ticketing and seat reservation platform b
 
 ---
 
+## 📐 System Architecture Diagram
+
+![AURA High-Concurrency Architecture Diagram](./architecture.svg)
+
+> 💡 **Edit in Draw.io:** You can open and edit the interactive vector source file [`architecture.drawio`](./architecture.drawio) directly in VS Code (with the *Draw.io Integration* extension) or upload it to [draw.io](https://app.diagrams.net).
+
+---
+
 ## 🏛️ Monorepo Architecture
 
 ```
