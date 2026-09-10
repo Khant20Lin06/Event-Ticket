@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: event-ticket-web-service
+  labels:
+    app: event-ticket-web
+    tier: frontend
+spec:
+  selector:
+    app: event-ticket-web
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      name: http
+  type: ClusterIP

@@ -1,0 +1,42 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: event-ticket-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: "16m"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
+    nginx.ingress.kubernetes.io/websocket-services: "event-ticket-service"
+    nginx.ingress.kubernetes.io/worker-connections: "65536"
+    nginx.ingress.kubernetes.io/upstream-keepalive-connections: "1000"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: ticketing.enterprise.com
+    http:
+      paths:
+      # Real-time WebSocket Gateway
+      - path: /socket.io
+        pathType: Prefix
+        backend:
+          service:
+            name: event-ticket-service
+            port:
+              number: 80
+      # REST API & Health & Metrics
+      - path: /api/v1
+        pathType: Prefix
+        backend:
+          service:
+            name: event-ticket-service
+            port:
+              number: 80
+      # Angular 19 Web SPA
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: event-ticket-web-service
+            port:
+              number: 80

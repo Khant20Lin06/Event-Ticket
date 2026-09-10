@@ -1,0 +1,19 @@
+{
+  "name": "event-ticket-enterprise-platform",
+  "version": "1.0.0",
+  "description": "Enterprise High-Concurrency Event Ticketing & Live Experience Platform",
+  "private": true,
+  "scripts": {
+    "start:backend": "npm --prefix event-ticket run start:dev",
+    "start:frontend": "npm --prefix event-ticket-web start",
+    "build:backend": "npm --prefix event-ticket run build",
+    "build:frontend": "npm --prefix event-ticket-web run build",
+    "build:all": "npm run build:backend && npm run build:frontend",
+    "test:backend": "npm --prefix event-ticket test",
+    "test:concurrency": "npm --prefix event-ticket run test:concurrency",
+    "docker:up": "docker compose up -d --build",
+    "docker:down": "docker compose down",
+    "docker:scale": "docker compose up -d --scale api=5",
+    "docker:logs": "docker compose logs -f api"
+  }
+}
